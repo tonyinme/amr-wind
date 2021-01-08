@@ -1,0 +1,4 @@
+<map id="amr_wind::actuator::ActuatorModel" name="amr_wind::actuator::ActuatorModel">
+<area shape="rect" id="node2" href="$structamr__wind_1_1_factory.html" title="amr_wind::Factory\&lt;\l ActuatorModel, CFDSim\l &amp;, const std::string\l &amp;, const int \&gt;" alt="" coords="5,139,175,209"/>
+<area shape="rect" id="node3" href="$structamr__wind_1_1_factory.html" title="Runtime selection of options based on string keyword lookupFactory provides an automated way to regis..." alt="" coords="21,5,159,47"/>
+</map>

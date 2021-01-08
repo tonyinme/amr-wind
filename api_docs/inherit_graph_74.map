@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$structamr__wind_1_1_factory.html" title="amr_wind::Factory\&lt;\l RefinementCriteria,\l CFDSim &amp;\&gt;" alt="" coords="5,5,144,61"/>
+<area shape="rect" id="node2" href="$classamr__wind_1_1_refinement_criteria.html" title="Abstract interface for tagging cells for refinementThis class provides an API that can be used by con..." alt="" coords="192,20,387,47"/>
+</map>

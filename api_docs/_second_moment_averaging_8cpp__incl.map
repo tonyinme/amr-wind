@@ -1,0 +1,20 @@
+<map id="SecondMomentAveraging.cpp" name="SecondMomentAveraging.cpp">
+<area shape="rect" id="node2" href="$_second_moment_averaging_8_h.html" title="SecondMomentAveraging.H" alt="" coords="992,80,1177,107"/>
+<area shape="rect" id="node4" href="$_direction_selector_8_h.html" title="amr&#45;wind/utilities\l/DirectionSelector.H" alt="" coords="461,244,601,285"/>
+<area shape="rect" id="node7" href="$_field_8_h.html" title="amr&#45;wind/core/Field.H" alt="" coords="1397,415,1548,442"/>
+<area shape="rect" id="node18" href="$_field_plane_averaging_8_h.html" title="amr&#45;wind/utilities\l/FieldPlaneAveraging.H" alt="" coords="925,155,1084,196"/>
+<area shape="rect" id="node14" href="$incflo__enums_8_h.html" title="amr&#45;wind/incflo_enums.H" alt="" coords="1011,505,1182,531"/>
+<area shape="rect" id="node15" href="$_field_desc_types_8_h.html" title="amr&#45;wind/core/FieldDescTypes.H" alt="" coords="2217,587,2435,613"/>
+<area shape="rect" id="node16" href="$_view_field_8_h.html" title="amr&#45;wind/core/ViewField.H" alt="" coords="1918,505,2097,531"/>
+<area shape="rect" id="node19" href="$_c_f_d_sim_8_h.html" title="amr&#45;wind/CFDSim.H" alt="" coords="933,251,1077,278"/>
+<area shape="rect" id="node20" href="$_sim_time_8_h.html" title="amr&#45;wind/core/SimTime.H" alt="" coords="557,333,732,360"/>
+<area shape="rect" id="node24" href="$_field_repo_8_h.html" title="amr&#45;wind/core/FieldRepo.H" alt="" coords="2119,333,2301,360"/>
+<area shape="rect" id="node31" href="$_p_d_e_base_8_h.html" title="amr&#45;wind/equation_systems\l/PDEBase.H" alt="" coords="711,408,896,449"/>
+<area shape="rect" id="node39" href="$_physics_8_h.html" title="amr&#45;wind/core/Physics.H" alt="" coords="920,415,1089,442"/>
+<area shape="rect" id="node25" href="$_field_utils_8_h.html" title="amr&#45;wind/core/FieldUtils.H" alt="" coords="2839,505,3016,531"/>
+<area shape="rect" id="node27" href="$_int_field_8_h.html" title="amr&#45;wind/core/IntField.H" alt="" coords="2499,415,2665,442"/>
+<area shape="rect" id="node29" href="$_scratch_field_8_h.html" title="amr&#45;wind/core/ScratchField.H" alt="" coords="2113,415,2307,442"/>
+<area shape="rect" id="node32" href="$_factory_8_h.html" title="amr&#45;wind/core/Factory.H" alt="" coords="219,505,385,531"/>
+<area shape="rect" id="node36" href="$_coll_mgr_8_h.html" title="amr&#45;wind/core/CollMgr.H" alt="" coords="409,505,576,531"/>
+<area shape="rect" id="node37" href="$_p_d_e_fields_8_h.html" title="amr&#45;wind/equation_systems\l/PDEFields.H" alt="" coords="5,497,191,539"/>
+</map>

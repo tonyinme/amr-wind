@@ -1,0 +1,8 @@
+<map id="amr_wind::CollMgr&lt; Collection, Type, allow_duplicates &gt;" name="amr_wind::CollMgr&lt; Collection, Type, allow_duplicates &gt;">
+<area shape="rect" id="node2" href="$classamr__wind_1_1_coll_mgr.html" title="amr_wind::CollMgr\&lt;\l ExtSolverMgr, ExtSolver \&gt;" alt="" coords="385,5,568,47"/>
+<area shape="rect" id="node4" href="$classamr__wind_1_1_coll_mgr.html" title="amr_wind::CollMgr\&lt;\l PhysicsMgr, Physics \&gt;" alt="" coords="395,71,558,112"/>
+<area shape="rect" id="node6" href="$classamr__wind_1_1_coll_mgr.html" title="amr_wind::CollMgr\&lt;\l PDEMgr, PDEBase \&gt;" alt="" coords="399,136,554,177"/>
+<area shape="rect" id="node3" href="$classamr__wind_1_1_ext_solver_mgr.html" title="amr_wind::ExtSolverMgr" alt="" coords="617,13,783,39"/>
+<area shape="rect" id="node5" href="$classamr__wind_1_1_physics_mgr.html" title="A collection of Physics models instances that are active during a simulation. " alt="" coords="623,78,777,105"/>
+<area shape="rect" id="node7" href="$classamr__wind_1_1pde_1_1_p_d_e_mgr.html" title="PDE systems manager. " alt="" coords="617,143,783,170"/>
+</map>

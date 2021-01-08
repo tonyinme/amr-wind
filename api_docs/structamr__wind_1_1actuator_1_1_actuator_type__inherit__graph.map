@@ -1,0 +1,7 @@
+<map id="amr_wind::actuator::ActuatorType" name="amr_wind::actuator::ActuatorType">
+<area shape="rect" id="node2" href="$structamr__wind_1_1actuator_1_1_turbine_type.html" title="amr_wind::actuator\l::TurbineType" alt="" coords="187,5,320,47"/>
+<area shape="rect" id="node4" href="$structamr__wind_1_1actuator_1_1_wing_type.html" title="amr_wind::actuator\l::WingType" alt="" coords="187,71,320,112"/>
+<area shape="rect" id="node3" href="$structamr__wind_1_1actuator_1_1_turbine_fast.html" title="amr_wind::actuator\l::TurbineFast" alt="" coords="368,5,501,47"/>
+<area shape="rect" id="node5" href="$structamr__wind_1_1actuator_1_1_fixed_wing.html" title="amr_wind::actuator\l::FixedWing" alt="" coords="368,71,501,112"/>
+<area shape="rect" id="node6" href="$structamr__wind_1_1actuator_1_1_flat_plate.html" title="amr_wind::actuator\l::FlatPlate" alt="" coords="368,136,501,177"/>
+</map>

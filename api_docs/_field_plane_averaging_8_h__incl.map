@@ -1,0 +1,18 @@
+<map id="FieldPlaneAveraging.H" name="FieldPlaneAveraging.H">
+<area shape="rect" id="node2" href="$_direction_selector_8_h.html" title="amr&#45;wind/utilities\l/DirectionSelector.H" alt="" coords="460,80,600,121"/>
+<area shape="rect" id="node5" href="$_c_f_d_sim_8_h.html" title="amr&#45;wind/CFDSim.H" alt="" coords="747,87,891,114"/>
+<area shape="rect" id="node7" href="$_sim_time_8_h.html" title="amr&#45;wind/core/SimTime.H" alt="" coords="181,169,356,196"/>
+<area shape="rect" id="node18" href="$_field_8_h.html" title="amr&#45;wind/core/Field.H" alt="" coords="1933,251,2084,278"/>
+<area shape="rect" id="node11" href="$_field_repo_8_h.html" title="amr&#45;wind/core/FieldRepo.H" alt="" coords="831,169,1013,196"/>
+<area shape="rect" id="node29" href="$_p_d_e_base_8_h.html" title="amr&#45;wind/equation_systems\l/PDEBase.H" alt="" coords="2405,244,2591,285"/>
+<area shape="rect" id="node37" href="$_physics_8_h.html" title="amr&#45;wind/core/Physics.H" alt="" coords="3088,251,3257,278"/>
+<area shape="rect" id="node14" href="$_field_desc_types_8_h.html" title="amr&#45;wind/core/FieldDescTypes.H" alt="" coords="984,423,1201,449"/>
+<area shape="rect" id="node15" href="$_field_utils_8_h.html" title="amr&#45;wind/core/FieldUtils.H" alt="" coords="419,341,596,367"/>
+<area shape="rect" id="node25" href="$_int_field_8_h.html" title="amr&#45;wind/core/IntField.H" alt="" coords="959,251,1125,278"/>
+<area shape="rect" id="node27" href="$_scratch_field_8_h.html" title="amr&#45;wind/core/ScratchField.H" alt="" coords="1291,251,1486,278"/>
+<area shape="rect" id="node22" href="$incflo__enums_8_h.html" title="amr&#45;wind/incflo_enums.H" alt="" coords="2290,341,2461,367"/>
+<area shape="rect" id="node23" href="$_view_field_8_h.html" title="amr&#45;wind/core/ViewField.H" alt="" coords="1527,341,1706,367"/>
+<area shape="rect" id="node30" href="$_factory_8_h.html" title="amr&#45;wind/core/Factory.H" alt="" coords="3089,341,3256,367"/>
+<area shape="rect" id="node34" href="$_coll_mgr_8_h.html" title="amr&#45;wind/core/CollMgr.H" alt="" coords="2796,341,2963,367"/>
+<area shape="rect" id="node35" href="$_p_d_e_fields_8_h.html" title="amr&#45;wind/equation_systems\l/PDEFields.H" alt="" coords="2587,333,2772,375"/>
+</map>

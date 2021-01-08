@@ -1,0 +1,5 @@
+<map id="amr_wind::actuator::WingType" name="amr_wind::actuator::WingType">
+<area shape="rect" id="node3" href="$structamr__wind_1_1actuator_1_1_fixed_wing.html" title="amr_wind::actuator\l::FixedWing" alt="" coords="5,184,139,225"/>
+<area shape="rect" id="node4" href="$structamr__wind_1_1actuator_1_1_flat_plate.html" title="amr_wind::actuator\l::FlatPlate" alt="" coords="163,184,296,225"/>
+<area shape="rect" id="node2" href="$structamr__wind_1_1actuator_1_1_actuator_type.html" title="Abstract representation of an actuator type. " alt="" coords="84,5,217,47"/>
+</map>

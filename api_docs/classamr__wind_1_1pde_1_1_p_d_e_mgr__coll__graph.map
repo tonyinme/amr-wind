@@ -1,0 +1,26 @@
+<map id="amr_wind::pde::PDEMgr" name="amr_wind::pde::PDEMgr">
+<area shape="rect" id="node10" href="$classamr__wind_1_1_c_f_d_sim.html" title="Data structures for a CFD simulationCFDSim represents the amr&#45;wind execution environment and manages ..." alt="" coords="2617,380,2755,407"/>
+<area shape="rect" id="node2" href="$classamr__wind_1_1_coll_mgr.html" title="amr_wind::CollMgr\&lt;\l PDEMgr, PDEBase \&gt;" alt="" coords="1382,515,1537,557"/>
+<area shape="rect" id="node9" href="$classamr__wind_1_1_coll_mgr.html" title="Interface to manage objects of sub&#45;classes based on factory registrationProvides boiler&#45;plate code to..." alt="" coords="965,379,1123,435"/>
+<area shape="rect" id="node14" href="$classamr__wind_1_1_derived_qty_mgr.html" title="amr_wind::DerivedQtyMgr" alt="" coords="1372,704,1547,731"/>
+<area shape="rect" id="node32" href="$classamr__wind_1_1_coll_mgr.html" title="amr_wind::CollMgr\&lt;\l ExtSolverMgr, ExtSolver \&gt;" alt="" coords="1368,450,1551,491"/>
+<area shape="rect" id="node34" href="$classamr__wind_1_1_coll_mgr.html" title="amr_wind::CollMgr\&lt;\l PhysicsMgr, Physics \&gt;" alt="" coords="1378,345,1541,386"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="266,652,346,679"/>
+<area shape="rect" id="node12" href="$classamr__wind_1_1_i_o_manager.html" title="Input/Output managerThis class contains infrastructure to output solution fields during the simulatio..." alt="" coords="2877,700,3027,727"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,645,132,686"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="237,465,375,506"/>
+<area shape="rect" id="node19" title="STL class. " alt="" coords="257,849,355,876"/>
+<area shape="rect" id="node17" title="STL class. " alt="" coords="1389,207,1529,233"/>
+<area shape="rect" id="node21" href="$classamr__wind_1_1_post_process_manager.html" title="A collection of post&#45;processing instances that are active during a simulation. " alt="" coords="2847,124,3057,151"/>
+<area shape="rect" id="node15" href="$classamr__wind_1_1_field_repo.html" title="Field RepositoryFieldRepo is a database that manages handling of fields used during a simulation..." alt="" coords="971,697,1117,724"/>
+<area shape="rect" id="node22" href="$classamr__wind_1_1_sim_time.html" title="Time manager for simulations. " alt="" coords="2200,521,2339,548"/>
+<area shape="rect" id="node24" href="$classamr__wind_1_1_overset_manager.html" title="Overset interface manager. " alt="" coords="1368,52,1551,79"/>
+<area shape="rect" id="node25" href="$structamr__wind_1_1_factory.html" title="amr_wind::Factory\&lt;\l OversetManager, CFDSim &amp;\&gt;" alt="" coords="943,50,1145,91"/>
+<area shape="rect" id="node26" href="$structamr__wind_1_1_factory.html" title="Runtime selection of options based on string keyword lookupFactory provides an automated way to regis..." alt="" coords="557,118,695,159"/>
+<area shape="rect" id="node29" href="$structamr__wind_1_1_factory.html" title="amr_wind::Factory\&lt;\l TurbulenceModel, CFDSim &amp;\&gt;" alt="" coords="941,118,1147,159"/>
+<area shape="rect" id="node37" href="$structamr__wind_1_1_factory.html" title="amr_wind::Factory\&lt;\l PDEBase, CFDSim &amp;,\l const int \&gt;" alt="" coords="964,236,1124,292"/>
+<area shape="rect" id="node28" href="$classamr__wind_1_1turbulence_1_1_turbulence_model.html" title="Abstract representation of a turbulence modelThis class is an abstract representation of a turbulence..." alt="" coords="1386,121,1533,162"/>
+<area shape="rect" id="node31" href="$classamr__wind_1_1_ext_solver_mgr.html" title="amr_wind::ExtSolverMgr" alt="" coords="1803,472,1969,499"/>
+<area shape="rect" id="node33" href="$classamr__wind_1_1_physics_mgr.html" title="A collection of Physics models instances that are active during a simulation. " alt="" coords="2008,415,2163,441"/>
+<area shape="rect" id="node36" href="$classamr__wind_1_1pde_1_1_p_d_e_base.html" title="Abstract interface defining a PDE and its solution process withn AMR&#45;WindThe exact behavior is implem..." alt="" coords="1373,280,1546,307"/>
+</map>

@@ -1,0 +1,35 @@
+<map id="amr_wind::TiogaInterface" name="amr_wind::TiogaInterface">
+<area shape="rect" id="node3" href="$classamr__wind_1_1_int_field.html" title="An integer computational fieldUsed to indicate masking and overset state with IBlanking. " alt="" coords="1582,289,1711,316"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="266,260,346,287"/>
+<area shape="rect" id="node13" href="$classamr__wind_1_1_i_o_manager.html" title="Input/Output managerThis class contains infrastructure to output solution fields during the simulatio..." alt="" coords="2702,403,2853,429"/>
+<area shape="rect" id="node22" href="$classamr__wind_1_1pde_1_1_p_d_e_mgr.html" title="PDE systems manager. " alt="" coords="2695,775,2860,801"/>
+<area shape="rect" id="node41" href="$classamr__wind_1_1_scratch_field.html" title="A temporary computational fieldA ScratchField is similar to a Field in usage, but is temporary in nat..." alt="" coords="1567,204,1726,231"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,253,132,294"/>
+<area shape="rect" id="node6" href="$classamr__wind_1_1_field_repo.html" title="Field RepositoryFieldRepo is a database that manages handling of fields used during a simulation..." alt="" coords="1249,309,1394,336"/>
+<area shape="rect" id="node11" href="$classamr__wind_1_1_c_f_d_sim.html" title="Data structures for a CFD simulationCFDSim represents the amr&#45;wind execution environment and manages ..." alt="" coords="2373,953,2511,980"/>
+<area shape="rect" id="node15" href="$classamr__wind_1_1_derived_qty_mgr.html" title="amr_wind::DerivedQtyMgr" alt="" coords="1559,519,1734,545"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="237,414,375,455"/>
+<area shape="rect" id="node19" title="STL class. " alt="" coords="257,120,355,147"/>
+<area shape="rect" id="node17" title="STL class. " alt="" coords="1577,1085,1717,1112"/>
+<area shape="rect" id="node50" title="STL class. " alt="" coords="248,541,364,568"/>
+<area shape="rect" id="node21" href="$classamr__wind_1_1_post_process_manager.html" title="A collection of post&#45;processing instances that are active during a simulation. " alt="" coords="2672,1128,2883,1155"/>
+<area shape="rect" id="node23" href="$classamr__wind_1_1_coll_mgr.html" title="amr_wind::CollMgr\&lt;\l PDEMgr, PDEBase \&gt;" alt="" coords="1244,815,1399,857"/>
+<area shape="rect" id="node24" href="$classamr__wind_1_1_coll_mgr.html" title="Interface to manage objects of sub&#45;classes based on factory registrationProvides boiler&#45;plate code to..." alt="" coords="839,955,997,1011"/>
+<area shape="rect" id="node37" href="$classamr__wind_1_1_coll_mgr.html" title="amr_wind::CollMgr\&lt;\l ExtSolverMgr, ExtSolver \&gt;" alt="" coords="1230,1093,1413,1134"/>
+<area shape="rect" id="node39" href="$classamr__wind_1_1_coll_mgr.html" title="amr_wind::CollMgr\&lt;\l PhysicsMgr, Physics \&gt;" alt="" coords="1240,962,1403,1003"/>
+<area shape="rect" id="node26" href="$classamr__wind_1_1pde_1_1_p_d_e_base.html" title="Abstract interface defining a PDE and its solution process withn AMR&#45;WindThe exact behavior is implem..." alt="" coords="1560,869,1733,896"/>
+<area shape="rect" id="node27" href="$structamr__wind_1_1_factory.html" title="amr_wind::Factory\&lt;\l PDEBase, CFDSim &amp;,\l const int \&gt;" alt="" coords="1241,881,1401,937"/>
+<area shape="rect" id="node28" href="$classamr__wind_1_1_sim_time.html" title="Time manager for simulations. " alt="" coords="2006,1028,2145,1055"/>
+<area shape="rect" id="node30" href="$classamr__wind_1_1_overset_manager.html" title="Overset interface manager. " alt="" coords="1555,1271,1738,1297"/>
+<area shape="rect" id="node31" href="$structamr__wind_1_1_factory.html" title="amr_wind::Factory\&lt;\l OversetManager, CFDSim &amp;\&gt;" alt="" coords="1220,1263,1423,1305"/>
+<area shape="rect" id="node33" href="$classamr__wind_1_1turbulence_1_1_turbulence_model.html" title="Abstract representation of a turbulence modelThis class is an abstract representation of a turbulence..." alt="" coords="1573,997,1720,1038"/>
+<area shape="rect" id="node34" href="$structamr__wind_1_1_factory.html" title="amr_wind::Factory\&lt;\l TurbulenceModel, CFDSim &amp;\&gt;" alt="" coords="1219,1027,1424,1069"/>
+<area shape="rect" id="node36" href="$classamr__wind_1_1_ext_solver_mgr.html" title="amr_wind::ExtSolverMgr" alt="" coords="1564,1185,1729,1212"/>
+<area shape="rect" id="node38" href="$classamr__wind_1_1_physics_mgr.html" title="A collection of Physics models instances that are active during a simulation. " alt="" coords="1781,871,1935,897"/>
+<area shape="rect" id="node43" href="$structamr__wind_1_1_a_m_r_overset_info.html" title="AMR mesh data in TIOGA format. " alt="" coords="1555,703,1739,729"/>
+<area shape="rect" id="node44" href="$structamr__wind_1_1tioga__iface_1_1_amr_dual_array.html" title="amr_wind::tioga_iface\l::AmrDualArray\&lt; amrex\l::Real \&gt;" alt="" coords="1241,735,1401,791"/>
+<area shape="rect" id="node45" href="$structamr__wind_1_1tioga__iface_1_1_amr_dual_array.html" title="Wrapper to handle host/device views of the data for TIOGA overset. " alt="" coords="843,631,993,673"/>
+<area shape="rect" id="node46" href="$structamr__wind_1_1tioga__iface_1_1_amr_dual_array.html" title="amr_wind::tioga_iface\l::AmrDualArray\&lt; amrex\l::Real *\&gt;" alt="" coords="1241,523,1401,579"/>
+<area shape="rect" id="node47" href="$structamr__wind_1_1tioga__iface_1_1_amr_dual_array.html" title="amr_wind::tioga_iface\l::AmrDualArray\&lt; int *\&gt;" alt="" coords="1244,603,1399,645"/>
+<area shape="rect" id="node48" href="$structamr__wind_1_1tioga__iface_1_1_amr_dual_array.html" title="amr_wind::tioga_iface\l::AmrDualArray\&lt; int \&gt;" alt="" coords="1246,669,1397,710"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$structamr__wind_1_1actuator_1_1_wing_base_data.html" title="Base data representation of a fixed&#45;wing. " alt="" coords="5,39,139,80"/>
+<area shape="rect" id="node2" href="$structamr__wind_1_1actuator_1_1_fixed_wing_data.html" title="amr_wind::actuator\l::FixedWingData" alt="" coords="187,5,320,47"/>
+<area shape="rect" id="node3" href="$structamr__wind_1_1actuator_1_1_flat_plate_data.html" title="amr_wind::actuator\l::FlatPlateData" alt="" coords="187,71,320,112"/>
+</map>

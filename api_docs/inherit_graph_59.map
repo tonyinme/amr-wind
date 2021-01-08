@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$structamr__wind_1_1derived_1_1_divergence.html" title="amr_wind::derived::\lDivergence" alt="" coords="124,5,260,47"/>
+<area shape="rect" id="node3" href="$structamr__wind_1_1derived_1_1_field_components.html" title="amr_wind::derived::\lFieldComponents" alt="" coords="124,71,260,112"/>
+<area shape="rect" id="node4" href="$structamr__wind_1_1derived_1_1_gradient.html" title="amr_wind::derived::\lGradient" alt="" coords="124,136,260,177"/>
+<area shape="rect" id="node5" href="$structamr__wind_1_1derived_1_1_laplacian.html" title="amr_wind::derived::\lLaplacian" alt="" coords="124,201,260,243"/>
+<area shape="rect" id="node6" href="$structamr__wind_1_1derived_1_1_q_criterion.html" title="amr_wind::derived::\lQCriterion" alt="" coords="124,267,260,308"/>
+<area shape="rect" id="node7" href="$structamr__wind_1_1derived_1_1_strain_rate_mag.html" title="amr_wind::derived::\lStrainRateMag" alt="" coords="124,332,260,373"/>
+<area shape="rect" id="node8" href="$structamr__wind_1_1derived_1_1_vorticity_mag.html" title="amr_wind::derived::\lVorticityMag" alt="" coords="124,397,260,439"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classamr__wind_1_1_cart_box_refinement.html" title="Static refinement with Cartesian&#45;aligned bounding boxesImplements tagging functionality for nested re..." alt="" coords="129,5,331,32"/>
+<area shape="rect" id="node3" href="$classamr__wind_1_1_field_refinement.html" title="AMR refinement using a given field (e.g., density)``` tagging.labels = t1 tagging/t1.type = FieldRefinement tagging/t1.field_name = density " alt="" coords="139,56,321,83"/>
+<area shape="rect" id="node4" href="$classamr__wind_1_1_geometry_refinement.html" title="AMR based on geometric shapes. " alt="" coords="125,107,335,133"/>
+<area shape="rect" id="node5" href="$classamr__wind_1_1_overset_refinement.html" title="amr_wind::OversetRefinement" alt="" coords="131,157,329,184"/>
+<area shape="rect" id="node6" href="$classamr__wind_1_1_q_criterion_refinement.html" title="AMR refinement using Q criterion``` tagging.labels = qc1 tagging/qc1.type = QCriterionRefinement tagg..." alt="" coords="124,208,336,235"/>
+<area shape="rect" id="node7" href="$classamr__wind_1_1_vorticity_refinement.html" title="AMR refinement using vorticity``` tagging.labels = v1 tagging/v1.type = VorticityRefinement tagging/v..." alt="" coords="129,259,331,285"/>
+</map>
