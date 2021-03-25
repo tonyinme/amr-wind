@@ -7,6 +7,10 @@
 #include "amr-wind/wind_energy/actuator/aero/AirfoilTable.H"
 #include "amr-wind/core/vs/vector_space.H"
 
+#include "amr-wind/utilities/trig_ops.H"
+#include "AMReX_AmrCore.H"
+
+
 namespace amr_wind {
 namespace actuator {
 namespace utils {
@@ -74,7 +78,7 @@ struct UpdateVelOp<
     auto& meta = data.meta(); 
     if (! meta.fllc_use) return;
     // Implement the FLLC
-    FLLCOp<ActTrait, ActSrcLine> op;
+    FLLCOp<ActTrait, ActSrcLine> op(data);
     op(data);
     }
 };
@@ -197,13 +201,27 @@ struct FLLCOp<
     VecList G_fllc;
     VecList dG_fllc;
 
+    FLLCOp(typename ActTrait::DataType& data){
+
+        auto& wdata = data.meta();
+        const int npts = wdata.num_pts;
+
+         G_fllc.assign(npts, vs::Vector::zero());
+         dG_fllc.assign(npts, vs::Vector::zero());
+         u_les_fllc.assign(npts, vs::Vector::zero());
+         u_opt_fllc.assign(npts, vs::Vector::zero());
+         du_fllc.assign(npts, vs::Vector::zero());
+        
+    }
 
     void operator()(typename ActTrait::DataType& data) {
+        
         auto& grid = data.grid();
         auto& wdata = data.meta();
         const int npts = wdata.num_pts;
         const auto& dx = wdata.dx;
-        const auto& chord = wdata.chord;
+        //~ const auto& du_fllc = wdata.du_fllc;
+        //~ const auto& chord = wdata.chord;
 
 //       const double fv = dot(f.data(), v.data());
 //        const double vmag2 = dot(v.data(), v.data());
@@ -212,9 +230,8 @@ struct FLLCOp<
 //        for (int j = 0; j < 3; ++j) {
 //          G(i, j) = force(i, j) - vel(i, j) * fv / vmag2;
 
-         G_fllc.assign(npts, vs::Vector::zero());
-         u_les_fllc.assign(npts, vs::Vector::zero());
-         u_opt_fllc.assign(npts, vs::Vector::zero());
+
+amrex::Print() << "Error NOT Here 0" << std::endl;
 
         // Step 1
         // Compute G
@@ -227,9 +244,20 @@ struct FLLCOp<
 
             const auto fv = force & vel;
 
+amrex::Print() << "Error NOT Here 01" << std::endl;
+
             G_fllc[ip] = force - vel * fv / vmag2;
 
+amrex::Print() << "Error NOT Here 02" << std::endl;
+
+            // Update the velocity with the correction from the previous time
+            wdata.vel_rel[ip] = wdata.vel_rel[ip] + du_fllc[ip];
+
+amrex::Print() << "Error NOT Here 03" << std::endl;
+
             }
+
+amrex::Print() << "Error NOT Here 1" << std::endl;
 
         // Step 2
         // Compute the gradient of the lift dG
@@ -256,15 +284,37 @@ struct FLLCOp<
 //            optInd[dir] -= deltaG(j + offset, dir) * coefficient * coefOpt;
 //            lesInd[dir] -= deltaG(j + offset, dir) * coefficient * coefLes;
 
+amrex::Print() << "Error NOT Here 2" << std::endl;
+
         for (int ip = 0; ip < npts; ++ip) {
 
-            auto eps_les = wdata.eps_inp[0];
-            auto eps_opt = wdata.epsilon_chord[0] * wdata.chord[ip];
+            const auto eps_les = wdata.eps_inp[0];
+            const auto eps_opt = wdata.epsilon_chord[0] * wdata.chord[ip];
 
-            for (int jp = 0; jp < npts; ++ip) {
+            auto vel =  wdata.vel_rel[ip];
+            const auto vmag = vs::mag(vel);
+                    
+            for (int jp = 0; jp < npts; ++jp) {
+                
+                const auto dr = vs::mag(grid.vel_pos[ip] - grid.vel_pos[jp]);
+                
+                const auto coefficient = 1.0 / (-4.0 * amr_wind::utils::pi() * dx[ip] * vmag);
+                const auto cLes = 1.0 - std::exp(-dr * dr / (eps_les * eps_les));
+                const auto cOpt = 1.0 - std::exp(-dr * dr / (eps_opt * eps_opt));
+
             
-//            u_les_fllc[ip] =;
+                for (int i =0; i<3; ++i)
+                {
+                    u_les_fllc[ip][i] -= dG_fllc[ip][i] * coefficient * cLes;
+                    u_opt_fllc[ip][i] -= dG_fllc[ip][i] * coefficient * cOpt;
+                }
+                
             }
+            
+            // Relaxation to compute the induced velocity
+            const double f = 0.1;
+            du_fllc[ip] = (1-f) * du_fllc[ip] + f * (u_opt_fllc[ip] - u_les_fllc[ip]);
+            
         }
 
     }
