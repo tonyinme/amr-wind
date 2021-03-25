@@ -5,6 +5,7 @@
 #include "amr-wind/wind_energy/actuator/actuator_types.H"
 #include "amr-wind/wind_energy/actuator/actuator_ops.H"
 #include "amr-wind/wind_energy/actuator/aero/AirfoilTable.H"
+#include "amr-wind/core/vs/vector_space.H"
 
 namespace amr_wind {
 namespace actuator {
@@ -68,7 +69,14 @@ struct UpdateVelOp<
         std::is_base_of<WingType, ActTrait>::value &&
         UseDefaultOp<ActTrait, ActSrcLine>::update_vel>::type>
 {
-    void operator()(typename ActTrait::DataType&) {}
+    void operator()(typename ActTrait::DataType& data) {
+    // Check if FLLC is active
+    auto& meta = data.meta(); 
+    if (! meta.fllc_use) return;
+    // Implement the FLLC
+    FLLCOp<ActTrait, ActSrcLine> op;
+    op(data);
+    }
 };
 
 template <typename ActTrait>
@@ -171,6 +179,96 @@ public:
             m_nc_filename, m_data.meta(), m_data.info(), m_data.grid(),
             time.new_time());
     }
+};
+
+template <typename ActTrait, typename SrcTrait>
+struct FLLCOp<
+    ActTrait, 
+    SrcTrait,
+    typename std::enable_if<
+        std::is_base_of<WingType, ActTrait>::value &&
+        UseDefaultOp<ActTrait, ActSrcLine>::update_vel>::type>
+{
+
+    //! The velocity correction from filtered lifting line theory
+    VecList u_les_fllc;
+    VecList u_opt_fllc;
+    VecList du_fllc;
+    VecList G_fllc;
+    VecList dG_fllc;
+
+
+    void operator()(typename ActTrait::DataType& data) {
+        auto& grid = data.grid();
+        auto& wdata = data.meta();
+        const int npts = wdata.num_pts;
+        const auto& dx = wdata.dx;
+        const auto& chord = wdata.chord;
+
+//       const double fv = dot(f.data(), v.data());
+//        const double vmag2 = dot(v.data(), v.data());
+//        Uinf(i) = std::sqrt(vmag2);
+
+//        for (int j = 0; j < 3; ++j) {
+//          G(i, j) = force(i, j) - vel(i, j) * fv / vmag2;
+
+         G_fllc.assign(npts, vs::Vector::zero());
+         u_les_fllc.assign(npts, vs::Vector::zero());
+         u_opt_fllc.assign(npts, vs::Vector::zero());
+
+        // Step 1
+        // Compute G
+        for (int ip = 0; ip < npts; ++ip) {
+
+            auto force = grid.force[ip];
+            auto vel =  wdata.vel_rel[ip];
+            const auto vmag = vs::mag(vel);
+            const auto vmag2 = vmag * vmag;
+
+            const auto fv = force & vel;
+
+            G_fllc[ip] = force - vel * fv / vmag2;
+
+            }
+
+        // Step 2
+        // Compute the gradient of the lift dG
+       dG_fllc[0] = G_fllc[0];
+       dG_fllc[npts-1] = -1 * G_fllc[npts-1];
+        
+       for (int ip = 1; ip < npts-1; ++ip) {
+
+            dG_fllc[ip] = 0.5 * (G_fllc[ip] - G_fllc[ip - 1]);
+          }
+
+        // Step 3
+        // Copmute the induced velocity from epsilon LES and
+        // from the optimal epsilon
+//          const double dr = dR * (i - j);
+//          const double dr2 = dr * dr;
+
+//          const double coefficient =
+//            1.0 / (-4.0 * M_PI * dr * Uinf(j + offset));
+//          const double coefOpt = 1.0 - std::exp(-dr2 / epsOpt2);
+//          const double coefLes = 1.0 - std::exp(-dr2 / epsLes2);
+
+//          for (int dir = 0; dir < 3; ++dir) {
+//            optInd[dir] -= deltaG(j + offset, dir) * coefficient * coefOpt;
+//            lesInd[dir] -= deltaG(j + offset, dir) * coefficient * coefLes;
+
+        for (int ip = 0; ip < npts; ++ip) {
+
+            auto eps_les = wdata.eps_inp[0];
+            auto eps_opt = wdata.epsilon_chord[0] * wdata.chord[ip];
+
+            for (int jp = 0; jp < npts; ++ip) {
+            
+//            u_les_fllc[ip] =;
+            }
+        }
+
+    }
+
 };
 
 } // namespace ops

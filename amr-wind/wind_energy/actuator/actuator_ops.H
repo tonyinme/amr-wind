@@ -93,6 +93,13 @@ void determine_influenced_procs(typename T::DataType&);
 template <typename T>
 void determine_root_proc(typename T::DataType&, amrex::Vector<int>&);
 
+/** Copmute the velocity correction from the 
+ *  Filtered Lifting Line Theory (Martinez-Tossas and Meneveau 2019)
+ *
+ */
+template <typename ActTrait, typename SrcTrait, typename = void>
+struct FLLCOp;
+
 } // namespace ops
 } // namespace actuator
 } // namespace amr_wind

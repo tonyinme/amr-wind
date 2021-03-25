@@ -27,6 +27,7 @@ struct ReadInputsOp<FixedWing, ActSrcLine>
         pp.query("airfoil_type", wdata.airfoil_type);
         pp.queryarr("span_locs", wdata.span_locs);
         pp.queryarr("chord", wdata.chord_inp);
+        pp.get("fllc", wdata.fllc_use);
 
         if (!pp.contains("epsilon") && !pp.contains("epsilon_chord")) {
             amrex::Abort(

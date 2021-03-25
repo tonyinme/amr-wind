@@ -27,11 +27,23 @@ struct WingBaseData
     //! Gaussian smearing factor input by user
     vs::Vector eps_inp;
 
+    //! epsilon / chord
+    vs::Vector eps_chord;
+
     //! Pitch angle for the wing
     amrex::Real pitch{0.0};
 
     //! Relative velocity at the actuator node
     VecList vel_rel;
+
+    // Flag to determine to use the filtered lifting line correction
+    bool fllc_use;
+
+    //! The velocity correction from filtered lifting line theory
+    //VecList u_les_fllc;
+    //VecList u_opt_fllc;
+    //VecList du_fllc;
+    //VecList G_fllc;
 
     //! Width of actuator sections
     RealList dx;

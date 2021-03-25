@@ -27,6 +27,7 @@ struct ReadInputsOp<FlatPlate, ActSrcLine>
         pp.get("start", wdata.start);
         pp.get("end", wdata.end);
         pp.get("epsilon", wdata.eps_inp);
+        pp.query("epsilon_chord", wdata.epsilon_chord);
         pp.get("pitch", wdata.pitch);
 
         pp.query("chord", wdata.chord_inp);
