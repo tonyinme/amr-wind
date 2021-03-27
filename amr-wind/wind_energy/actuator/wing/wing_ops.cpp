@@ -62,7 +62,7 @@ void init_data_structures(WingBaseData& wdata, ActGrid& grid)
     grid.vel.assign(npts, vs::Vector::zero());
     
     // The filtered lifting line theory correction
-    //~ grid.du_fllc.assign(npts, vs::Vector::zero());
+    wdata.du_fllc.assign(npts, vs::Vector::zero());
 
     // Assign length of actuator segments
     wdata.dx.assign(npts, vs::mag(dx));

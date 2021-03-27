@@ -76,7 +76,7 @@ struct UpdateVelOp<
     void operator()(typename ActTrait::DataType& data) {
     // Check if FLLC is active
     auto& meta = data.meta(); 
-    if (! meta.fllc_use) return;
+    if (! meta.fllc_use || ! meta.fllc_is_init) return;
     // Implement the FLLC
     FLLCOp<ActTrait, ActSrcLine> op(data);
     op(data);
@@ -106,6 +106,7 @@ struct ComputeForceOp<
             const auto& tmat = grid.orientation[ip];
             // Effective velocity at the wing control point in local frame
             auto wvel = tmat & grid.vel[ip];
+
             // Set spanwise component to zero to get a pure 2D velocity
             wvel.y() = 0.0;
 
@@ -140,6 +141,10 @@ struct ComputeForceOp<
 
         wdata.lift = total_lift;
         wdata.drag = total_drag;
+
+        // Initialize the fllc flag
+        wdata.fllc_is_init = true;
+
     }
 };
 
@@ -197,7 +202,6 @@ struct FLLCOp<
     //! The velocity correction from filtered lifting line theory
     VecList u_les_fllc;
     VecList u_opt_fllc;
-    VecList du_fllc;
     VecList G_fllc;
     VecList dG_fllc;
 
@@ -210,7 +214,6 @@ struct FLLCOp<
          dG_fllc.assign(npts, vs::Vector::zero());
          u_les_fllc.assign(npts, vs::Vector::zero());
          u_opt_fllc.assign(npts, vs::Vector::zero());
-         du_fllc.assign(npts, vs::Vector::zero());
         
     }
 
@@ -220,101 +223,76 @@ struct FLLCOp<
         auto& wdata = data.meta();
         const int npts = wdata.num_pts;
         const auto& dx = wdata.dx;
-        //~ const auto& du_fllc = wdata.du_fllc;
-        //~ const auto& chord = wdata.chord;
-
-//       const double fv = dot(f.data(), v.data());
-//        const double vmag2 = dot(v.data(), v.data());
-//        Uinf(i) = std::sqrt(vmag2);
-
-//        for (int j = 0; j < 3; ++j) {
-//          G(i, j) = force(i, j) - vel(i, j) * fv / vmag2;
-
-
-amrex::Print() << "Error NOT Here 0" << std::endl;
+        auto& du_fllc = wdata.du_fllc;
 
         // Step 1
         // Compute G
         for (int ip = 0; ip < npts; ++ip) {
 
+            const auto& tmat = grid.orientation[ip];
             auto force = grid.force[ip];
-            auto vel =  wdata.vel_rel[ip];
+//            auto vel =  grid.vel[ip];
+            auto vel =  wdata.vel_rel[ip] & tmat;
+            auto dx =  wdata.dx[ip];
             const auto vmag = vs::mag(vel);
             const auto vmag2 = vmag * vmag;
 
             const auto fv = force & vel;
 
-amrex::Print() << "Error NOT Here 01" << std::endl;
-
-            G_fllc[ip] = force - vel * fv / vmag2;
-
-amrex::Print() << "Error NOT Here 02" << std::endl;
-
-            // Update the velocity with the correction from the previous time
-            wdata.vel_rel[ip] = wdata.vel_rel[ip] + du_fllc[ip];
-
-amrex::Print() << "Error NOT Here 03" << std::endl;
+            G_fllc[ip] = (force - vel * fv / vmag2) / dx;
 
             }
-
-amrex::Print() << "Error NOT Here 1" << std::endl;
 
         // Step 2
         // Compute the gradient of the lift dG
        dG_fllc[0] = G_fllc[0];
        dG_fllc[npts-1] = -1 * G_fllc[npts-1];
-        
        for (int ip = 1; ip < npts-1; ++ip) {
 
-            dG_fllc[ip] = 0.5 * (G_fllc[ip] - G_fllc[ip - 1]);
+            dG_fllc[ip] = 0.5 * (G_fllc[ip+1] - G_fllc[ip - 1]);
+
           }
 
         // Step 3
         // Copmute the induced velocity from epsilon LES and
         // from the optimal epsilon
-//          const double dr = dR * (i - j);
-//          const double dr2 = dr * dr;
-
-//          const double coefficient =
-//            1.0 / (-4.0 * M_PI * dr * Uinf(j + offset));
-//          const double coefOpt = 1.0 - std::exp(-dr2 / epsOpt2);
-//          const double coefLes = 1.0 - std::exp(-dr2 / epsLes2);
-
-//          for (int dir = 0; dir < 3; ++dir) {
-//            optInd[dir] -= deltaG(j + offset, dir) * coefficient * coefOpt;
-//            lesInd[dir] -= deltaG(j + offset, dir) * coefficient * coefLes;
-
-amrex::Print() << "Error NOT Here 2" << std::endl;
-
         for (int ip = 0; ip < npts; ++ip) {
 
             const auto eps_les = wdata.eps_inp[0];
             const auto eps_opt = wdata.epsilon_chord[0] * wdata.chord[ip];
-
-            auto vel =  wdata.vel_rel[ip];
-            const auto vmag = vs::mag(vel);
                     
             for (int jp = 0; jp < npts; ++jp) {
-                
+
+                if (ip==jp) continue; 
+
                 const auto dr = vs::mag(grid.vel_pos[ip] - grid.vel_pos[jp]);
-                
-                const auto coefficient = 1.0 / (-4.0 * amr_wind::utils::pi() * dx[ip] * vmag);
+                const auto& vel =  wdata.vel_rel[jp];
+                const auto vmag = vs::mag(vel);
+
+                auto coefficient = 1.0 / (-4.0 * amr_wind::utils::pi() * dr * vmag);
                 const auto cLes = 1.0 - std::exp(-dr * dr / (eps_les * eps_les));
                 const auto cOpt = 1.0 - std::exp(-dr * dr / (eps_opt * eps_opt));
 
-            
-                for (int i =0; i<3; ++i)
-                {
-                    u_les_fllc[ip][i] -= dG_fllc[ip][i] * coefficient * cLes;
-                    u_opt_fllc[ip][i] -= dG_fllc[ip][i] * coefficient * cOpt;
-                }
+                // The sign of the induced velocity depends on which side of the blade we are on
+                if (ip<jp) coefficient*=-1;
+           
+               u_les_fllc[ip] = u_les_fllc[ip] - dG_fllc[jp] * coefficient * cLes;
+               u_opt_fllc[ip] = u_opt_fllc[ip] - dG_fllc[jp] * coefficient * cOpt;
                 
             }
-            
+
             // Relaxation to compute the induced velocity
             const double f = 0.1;
-            du_fllc[ip] = (1-f) * du_fllc[ip] + f * (u_opt_fllc[ip] - u_les_fllc[ip]);
+            du_fllc[ip] = (1.-f) * du_fllc[ip] + f * (u_opt_fllc[ip] - u_les_fllc[ip]);
             
+        }
+
+        // Step 4
+        // Update the velocity using the previous time
+        for (int ip = 0; ip < npts; ++ip) {
+
+            // Update the velocity with the correction from the previous time
+            grid.vel[ip] = grid.vel[ip] + du_fllc[ip];
         }
 
     }

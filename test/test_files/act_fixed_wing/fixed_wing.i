@@ -35,6 +35,7 @@ turbulence.model = Laminar
 incflo.physics = FreeStream Actuator
 Actuator.labels = F1
 Actuator.type = FixedWingLine
+Actuator.FixedWingLine.fllc = 0
 Actuator.FixedWingLine.num_points = 21
 Actuator.FixedWingLine.epsilon = 3.0 3.0 3.0
 Actuator.FixedWingLine.pitch = 4.0
