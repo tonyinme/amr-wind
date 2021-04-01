@@ -71,6 +71,13 @@ struct TurbineBaseData
     //! Gaussian smearing factor for tower
     vs::Vector eps_tower;
 
+    //! Flag to determine to use the filtered lifting line correction
+    bool fllc_use;
+    bool fllc_is_init{false};
+
+    //! The filtered lifting line correction velocity
+    VecList du_fllc;
+
     //! Drag coefficient for nacelle
     amrex::Real nacelle_cd{0.0};
 

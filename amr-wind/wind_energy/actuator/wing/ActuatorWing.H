@@ -41,10 +41,7 @@ struct WingBaseData
     bool fllc_is_init{false};
 
     //! The velocity correction from filtered lifting line theory
-    //VecList u_les_fllc;
-    //VecList u_opt_fllc;
     VecList du_fllc;
-    //VecList G_fllc;
 
     //! Width of actuator sections
     RealList dx;
