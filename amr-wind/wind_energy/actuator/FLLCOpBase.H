@@ -120,8 +120,21 @@ struct FLLCOpBase //<ActTrait, SrcTrait>
 };
 
 
+template <typename TurbineFast>
+struct FLLCOpTurbineBase 
+{
+   void operator()(typename TurbineFast::DataType& data) {
 
+    // The turbine data
+    auto& tdata = data.meta();
 
+    // Introduce FLLC logic
+    for (int i=0; i < tdata.num_blades; ++i)
+    {
+
+    }
+    }
+};
 
 }
 }

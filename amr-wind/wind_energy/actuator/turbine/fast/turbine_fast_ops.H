@@ -338,22 +338,24 @@ struct UpdateVelOp<TurbineFast, SrcTrait>
         if (!data.info().is_root_proc) return;
         BL_PROFILE("amr-wind::actuator::UpdateVelOp<TurbineFast>");
 
+        FLLCOpTurbineBase<TurbineFast> op(data);
+
         // The turbine data
         auto& tdata = data.meta();
 
         // Introduce FLLC logic
-        for (int i=0; i < tdata.num_blades; ++i)
-        {
+        //for (int i=0; i < tdata.num_blades; ++i)
+      //  {
             // Call fllc operator
             //
-            if (! tdata.fllc_use || ! tdata.fllc_is_init) continue;
+//            if (! tdata.fllc_use || ! tdata.fllc_is_init) continue;
 
-            auto& cv = tdata.blades[i];
+  //          auto& cv = tdata.blades[i];
             // Implement the FLLC
    //         FLLCOpBase<SrcTrait, TurbineFast> op(cv);
 //            FLLCOpBase<TurbineFast, SrcTrait> op(cv);
 //        op(data);
-        }
+    //    }
 
         auto& from_cfd = data.meta().fast_data.from_cfd;
         auto& uvel = from_cfd.u;
